@@ -1,0 +1,114 @@
+@use "../global" as *;
+
+.header {
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+  $parent: &;
+
+  &.js-hide {
+    #{$parent}__side::before {
+      opacity: 0;
+    }
+
+    #{$parent}__copyright {
+      opacity: 0;
+    }
+
+    #{$parent}__sns-wrap {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  &__side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    padding: 2.5rem;
+
+    @media screen and (min-width: 1280px) {
+      height: 100vh;
+      padding: 10rem 8rem;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 10rem;
+        right: 0;
+        width: 1px;
+        height: calc(100% - 20rem);
+        background: $light-white;
+        transition: 0.6s;
+      }
+    }
+  }
+
+  &__logo-link {
+    display: block;
+    width: 70px;
+    height: 45px;
+    text-decoration: none;
+    transition: 0.4s ease-out;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    @media screen and (min-width: 1280px) {
+      width: 110px;
+      height: 60px;
+    }
+  }
+
+  &__logo-img {
+    @include img-base;
+  }
+
+  &__copyright {
+    display: none;
+
+    @media screen and (min-width: 1280px) {
+      display: block;
+      color: $light-white;
+      font-family: $roc;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      transform: rotate(-90deg);
+      transition: 0.6s;
+    }
+  }
+
+  &__sns-wrap {
+    display: none;
+
+    @media screen and (min-width: 1280px) {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      transition: 0.6s;
+    }
+  }
+
+  &__sns-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    transition: 0.4s ease-out;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &__sns-img {
+    @include img-base;
+  }
+}

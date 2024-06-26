@@ -1,0 +1,1021 @@
+@use "../global" as *;
+
+#top {
+  .op {
+    width: 100%;
+    height: 100vh;
+    background: $bg-light-black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    animation: wrapHide 0.8s 2s ease-out forwards;
+
+    &__logo {
+      @include img-base;
+      object-fit: contain;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 70px;
+      height: 200px;
+      animation: showLogo 2s ease-out forwards;
+
+      @media screen and (min-width: 1280px) {
+        width: 90px;
+        height: 360px;
+      }
+    }
+  }
+
+  .mv {
+    height: 100vh;
+    margin-bottom: 8rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 70px;
+      height: 200px;
+      background: url(../images/common/logo_manroen_long.svg) no-repeat center center / contain;
+      z-index: 100;
+    }
+
+    @media screen and (min-width: 1280px) {
+      margin-bottom: 16rem;
+
+      &::before {
+        width: 90px;
+        height: 360px;
+      }
+    }
+
+    .swiper {
+      width: 100%;
+      height: 50%;
+      pointer-events: none;
+      user-select: none;
+
+      @media screen and (min-width: 1280px) {
+        width: 100%;
+        height: 100%;
+      }
+
+      .swiper-wrapper {
+        .swiper-slide {
+          transition-property: opacity, transform !important;
+
+          &.swiper-slide-active {
+            .mv__slide-img {
+              transform: scale(1.05);
+            }
+          }
+        }
+      }
+    }
+
+    &__slide-img {
+      @include img-base;
+      height: 100%;
+      transition: 7s ease-out;
+    }
+  }
+
+  .news {
+    margin-bottom: 8rem;
+
+    @media screen and (min-width: 1280px) {
+      margin-bottom: 16rem;
+    }
+
+    &__inner {
+      @include contents-width;
+      display: flex;
+      flex-direction: column;
+
+      @media screen and (min-width: 1280px) {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    &__ttl {
+      width: 8rem;
+      padding: 0.6rem 0 0.4rem;
+      margin-bottom: 2.4rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid $light-white;
+      border-radius: 5rem;
+      color: $white;
+      font-family: $roc;
+      font-size: clamp(16px, 1.6rem, 20px);
+      font-weight: 500;
+
+      @media screen and (min-width: 1280px) {
+        width: 11rem;
+        padding: 0.8rem 0 0.6rem;
+        margin-bottom: 0;
+        font-size: clamp(14px, 2rem, 20px);
+      }
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+
+      @media screen and (min-width: 1280px) {
+        width: calc(100% - 11rem - 6rem);
+        gap: 1.6rem;
+      }
+    }
+
+    &__row-group {
+      display: flex;
+      flex-direction: column;
+
+      @media screen and (min-width: 1280px) {
+        flex-direction: row;
+        align-items: center;
+        gap: 2.4rem;
+      }
+    }
+
+    &__date {
+      margin-bottom: 0.8rem;
+      color: $light-white;
+      font-family: $roc;
+      font-size: clamp(14px, 1.4rem, 16px);
+      letter-spacing: 0.1em;
+
+      @media screen and (min-width: 1280px) {
+        margin-bottom: 0;
+        font-size: clamp(14px, 1.6rem, 16px);
+      }
+    }
+
+    &__txt {
+      color: $white;
+      font-size: clamp(14px, 1.4rem, 16px);
+      letter-spacing: 0.05em;
+      line-height: 1.4;
+
+      @media screen and (min-width: 1280px) {
+        font-size: clamp(16px, 1.8rem, 18px);
+      }
+    }
+  }
+
+  .history {
+    margin-bottom: 32rem;
+
+    &__inner {
+      @include contents-width;
+    }
+
+    &__ttl-wrap {
+      margin-bottom: 7.2rem;
+      width: 100%;
+      height: 20rem;
+      background: url(../../images/top/history_bg.jpg) center center / cover;
+      position: relative;
+
+      @media screen and (min-width: 1280px) {
+        margin-left: 22rem;
+        margin-bottom: 16rem;
+        height: 74rem;
+      }
+    }
+
+    &__ttl {
+      width: 22.7rem;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      transform: translateY(50%);
+
+      @media screen and (min-width: 1280px) {
+        width: 52.7rem;
+        left: -22rem;
+        bottom: 50%;
+      }
+    }
+
+    &__logo-img {
+      @include img-base;
+      @include show-title-logo;
+    }
+
+    &__ttl-ja {
+      position: absolute;
+      left: 0;
+      bottom: -1.6rem;
+      display: block;
+      color: $white;
+      font-size: clamp(16px, 1.6rem, 22px);
+      font-weight: 400;
+      letter-spacing: 0.05em;
+
+      @media screen and (min-width: 1280px) {
+        bottom: -2rem;
+        font-size: clamp(18px, 2.2rem, 22px);
+      }
+    }
+
+    &__box {
+      padding-left: 2rem;
+      position: relative;
+
+      @media screen and (min-width: 1280px) {
+        padding-left: 22rem;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        gap: 12rem;
+      }
+    }
+
+    &__txt-wrap {
+      margin-bottom: 6.6rem;
+
+      @media screen and (min-width: 1280px) {
+        margin-bottom: 0;
+      }
+    }
+
+    &__message {
+      margin-bottom: 8rem;
+      color: $white;
+      font-family: $zen-mincho;
+      font-size: clamp(24px, 2.4rem, 36px);
+      letter-spacing: 0.03em;
+      line-height: 1.5;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -4rem;
+        left: 0;
+        transform: translateY(50%);
+        width: 2.4rem;
+        height: 1px;
+        background: $white;
+      }
+
+      @media screen and (min-width: 1280px) {
+        font-size: clamp(30px, 3.6rem, 36px);
+
+        &::before {
+          display: none;
+        }
+      }
+    }
+
+    &__sp-br {
+      @media screen and (min-width: 1280px) {
+        display: none;
+      }
+    }
+
+    &__txt {
+      margin-bottom: 2.8rem;
+      color: $white;
+      font-size: clamp(14px, 1.4rem, 18px);
+      letter-spacing: 0.05em;
+      line-height: 2;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+
+      @media screen and (min-width: 1280px) {
+        margin-bottom: 3.6rem;
+        font-size: clamp(16px, 1.8rem, 18px);
+      }
+    }
+
+    &__txt-en {
+      color: $white;
+      font-family: $roc;
+      font-size: clamp(14px, 1.4rem, 16px);
+      letter-spacing: 0.05em;
+      line-height: 1.5;
+      position: relative;
+      z-index: 1;
+
+      @media screen and (min-width: 1280px) {
+        font-size: clamp(14px, 1.6rem, 16px);
+      }
+    }
+
+    &__img-wrap {
+      position: absolute;
+      left: 2rem;
+      bottom: 0;
+      transform: translateY(100%);
+      width: calc(100% - 4rem);
+      height: 18rem;
+
+      @media screen and (min-width: 1280px) {
+        left: -40rem;
+        bottom: 0;
+        transform: translateY(25%);
+        width: 64rem;
+        height: 42rem;
+      }
+    }
+
+    &__img {
+      @include img-base;
+      height: 100%;
+      position: absolute;
+
+      &.is-first {
+        animation: historyImage1 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+      }
+
+      &.is-second {
+        z-index: 2;
+        animation: historyImage2 0.8s both;
+      }
+
+      &.is-third {
+        animation: historyImage3 1.3s cubic-bezier(0.165, 0.84, 0.44, 1) both;
+      }
+    }
+  }
+
+  .menu {
+    margin-bottom: 8rem;
+
+    @media screen and (min-width: 1280px) {
+      margin-bottom: 16rem;
+    }
+
+    &__inner {
+      @include contents-width;
+    }
+
+    &__ttl {
+      margin-bottom: 4rem;
+      width: 17.8rem;
+
+      @media screen and (min-width: 1280px) {
+        margin-bottom: 10.4rem;
+        width: 41.3rem;
+      }
+    }
+
+    &__logo-img {
+      @include img-base;
+      @include show-title-logo;
+      margin-bottom: 1.6rem;
+
+      @media screen and (min-width: 1280px) {
+        margin-bottom: 2.4rem;
+      }
+    }
+
+    &__ttl-ja {
+      display: block;
+      color: $white;
+      font-size: clamp(16px, 1.6rem, 22px);
+      font-weight: 400;
+      letter-spacing: 0.05em;
+
+      @media screen and (min-width: 1280px) {
+        font-size: clamp(18px, 2.2rem, 22px);
+      }
+    }
+
+    &__accordion {
+      margin-bottom: 4rem;
+      display: flex;
+      flex-direction: column;
+
+      @media screen and (min-width: 1280px) {
+        margin-bottom: 10rem;
+      }
+    }
+
+    &__accordion-list {
+      list-style-type: none;
+      border-top: 1px solid $light-white;
+      position: relative;
+
+      &:first-of-type {
+        &::before {
+          content: "";
+          position: absolute;
+          top: -1px;
+          left: 0;
+          width: 50px;
+          height: 1px;
+          background: $white;
+        }
+      }
+
+      &:last-of-type {
+        border-bottom: 1px solid $light-white;
+      }
+    }
+
+    &__heading-wrap {
+      padding: 3rem 6rem 3rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+
+      @media screen and (min-width: 1280px) {
+        padding: 8rem 10rem 8rem 0;
+      }
+    }
+
+    &__heading-ja {
+      display: block;
+      color: $white;
+      font-size: clamp(18px, 1.8rem, 26px);
+      font-weight: 500;
+
+      @media screen and (min-width: 1280px) {
+        font-size: clamp(26px, 3.2rem, 32px);
+      }
+    }
+
+    &__heading-en {
+      display: block;
+      color: $light-white;
+      font-size: clamp(12px, 1.2rem, 14px);
+      letter-spacing: 0.15em;
+
+      @media screen and (min-width: 1280px) {
+        font-size: clamp(14px, 1.6rem, 16px);
+      }
+    }
+
+    &__heading-btn {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      display: block;
+      width: 2rem;
+      height: 2rem;
+      max-width: 40px;
+      max-height: 40px;
+      border-radius: 50%;
+      border: 1px solid $white;
+      background: $white;
+      transition: 0.4s;
+
+      &:hover {
+        transform: translateY(-50%) scale(1.2);
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50%;
+        height: 1px;
+        background: $bg-black;
+        transition: 0.2s;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(90deg);
+        width: 50%;
+        height: 1px;
+        background: $bg-black;
+        transition: 0.2s;
+      }
+
+      &.opened {
+        border: 1px solid $light-white;
+        background: $bg-black;
+        &::before {
+          background: $white;
+        }
+        &::after {
+          background: $white;
+          opacity: 0;
+        }
+      }
+
+      @media screen and (min-width: 1280px) {
+        width: 3rem;
+        height: 3rem;
+      }
+    }
+
+    &__contents {
+      overflow: hidden;
+      height: 0;
+      opacity: 0;
+      transition: 0.6s ease-out;
+    }
+
+    &__contents-list {
+      padding: 1.4rem 0;
+      border-top: 1px solid $light-white;
+      list-style-type: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 4.8rem;
+
+      @media screen and (min-width: 1280px) {
+        padding: 4rem 0 4rem 12rem;
+      }
+    }
+
+    &__txt-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+
+      @media screen and (min-width: 1280px) {
+        flex-direction: row;
+        gap: 12rem;
+      }
+    }
+
+    &__name {
+      display: block;
+      color: $white;
+      font-size: clamp(14px, 1.4rem, 20px);
+
+      @media screen and (min-width: 1280px) {
+        font-size: clamp(20px, 2.2rem, 22px);
+      }
+    }
+
+    &__txt {
+      display: block;
+      color: $white;
+      font-size: clamp(12px, 1.2rem, 14px);
+      letter-spacing: 0.05em;
+      line-height: 1.5;
+
+      @media screen and (min-width: 1280px) {
+        font-size: clamp(14px, 1.6rem, 16px);
+      }
+    }
+
+    &__price {
+      display: block;
+      color: $white;
+      font-family: $roc;
+      font-size: clamp(26px, 2.6rem, 28px);
+
+      @media screen and (min-width: 1280px) {
+        font-size: clamp(26px, 3rem, 30px);
+      }
+    }
+
+    &__price-symbol {
+      display: inline;
+      color: $white;
+      font-family: $roc;
+      font-size: clamp(18px, 1.8rem, 20px);
+
+      @media screen and (min-width: 1280px) {
+        font-size: clamp(18px, 2rem, 20px);
+      }
+    }
+
+    &__note {
+      color: $light-white;
+      font-size: clamp(12px, 1.2rem, 14px);
+      letter-spacing: 0.05em;
+      text-align: center;
+
+      @media screen and (min-width: 1280px) {
+        font-size: clamp(14px, 1.6rem, 16px);
+        text-align: right;
+      }
+    }
+  }
+
+  .picture-slider {
+    margin-bottom: 8rem;
+
+    @media screen and (min-width: 1280px) {
+      margin-bottom: 16rem;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 30rem;
+
+      @media screen and (min-width: 1280px) {
+        height: 740px;
+      }
+    }
+
+    .swiper-wrapper {
+      transition-timing-function: linear;
+    }
+
+    &__img {
+      @include img-base;
+      height: 100%;
+    }
+  }
+
+  .info {
+    margin-bottom: 8rem;
+
+    @media screen and (min-width: 1280px) {
+      margin-bottom: 16rem;
+    }
+
+    &__inner {
+      @include contents-width;
+    }
+
+    &__ttl {
+      margin-bottom: 4rem;
+      width: 31rem;
+
+      @media screen and (min-width: 1280px) {
+        margin-bottom: 10.4rem;
+        width: 71.9rem;
+      }
+    }
+
+    &__logo-img {
+      @include img-base;
+      @include show-title-logo;
+      margin-bottom: 1.2rem;
+
+      @media screen and (min-width: 1280px) {
+        margin-bottom: 2rem;
+      }
+    }
+
+    &__ttl-ja {
+      display: block;
+      color: $white;
+      font-size: clamp(16px, 1.6rem, 22px);
+      font-weight: 400;
+      letter-spacing: 0.05em;
+
+      @media screen and (min-width: 1280px) {
+        font-size: clamp(18px, 2.2rem, 22px);
+      }
+    }
+
+    &__map-wrap {
+      position: relative;
+
+      @media screen and (min-width: 1280px) {
+        margin-right: 16rem;
+      }
+    }
+
+    &__map {
+      width: 100%;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.25);
+        z-index: 1;
+      }
+
+      iframe {
+        width: 100%;
+        aspect-ratio: 375/335;
+        filter: grayscale(1);
+
+        @media screen and (min-width: 1280px) {
+          aspect-ratio: 1760/1080;
+        }
+      }
+    }
+
+    &__shop-info {
+      padding: 0 2.5rem;
+
+      @media screen and (min-width: 1280px) {
+        padding: 0 0 0 11rem;
+        background: $bg-black;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 1;
+      }
+    }
+
+    &__box-top {
+      padding: 4rem 0;
+      border-bottom: 1px solid $light-white;
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 50px;
+        height: 1px;
+        background: $white;
+      }
+
+      @media screen and (min-width: 1280px) {
+        padding: 8rem 0;
+        align-items: center;
+      }
+    }
+
+    &__name-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+
+      @media screen and (min-width: 1280px) {
+        flex-direction: row;
+        align-items: center;
+        gap: 6rem;
+      }
+    }
+
+    &__name {
+      font-size: clamp(18px, 1.8rem, 24px);
+      font-weight: 500;
+
+      @media screen and (min-width: 1280px) {
+        font-size: clamp(24px, 2.8rem, 28px);
+      }
+    }
+
+    &__address {
+      font-size: clamp(14px, 1.4rem, 20px);
+
+      @media screen and (min-width: 1280px) {
+        font-size: clamp(20px, 2.2rem, 22px);
+      }
+    }
+
+    &__googlemap-link {
+      padding: 10px 0;
+      display: block;
+      color: $white;
+      font-family: $roc;
+      font-size: clamp(12px, 1.2rem, 14px);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      position: relative;
+      transition: 0.4s ease-out;
+
+      &:hover {
+        opacity: 0.7;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 4px;
+        left: 0;
+        transform: translateX(-120%);
+        width: 20px;
+        height: 20px;
+        background: url(../images/top/info_pin.svg) no-repeat center center / contain;
+      }
+
+      @media screen and (min-width: 1280px) {
+        font-size: clamp(14px, 1.6rem, 16px);
+      }
+    }
+
+    &__box-bottom {
+      padding-top: 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.4rem;
+
+      @media screen and (min-width: 1280px) {
+        padding-top: 8rem;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    &__basic-info {
+      max-width: 400px;
+
+      @media screen and (min-width: 1280px) {
+        width: 48%;
+      }
+    }
+
+    &__sub {
+      margin-bottom: 1rem;
+      font-size: clamp(16px, 1.6rem, 20px);
+
+      @media screen and (min-width: 1280px) {
+        margin-bottom: 2.4rem;
+        font-size: clamp(20px, 2.2rem, 22px);
+      }
+    }
+
+    &__tel {
+      font-family: $roc;
+      font-size: clamp(26px, 2.6rem, 30px);
+      letter-spacing: 0.05em;
+
+      @media screen and (min-width: 1280px) {
+        font-size: clamp(30px, 3.2rem, 32px);
+      }
+
+      span {
+        font-size: clamp(18px, 1.8rem, 20px);
+
+        @media screen and (min-width: 1280px) {
+          font-size: clamp(20px, 2.2rem, 22px);
+        }
+      }
+    }
+
+    &__row {
+      display: flex;
+      flex-wrap: nowrap;
+
+      p {
+        font-size: clamp(12px, 1.2rem, 14px);
+        line-height: 2;
+
+        @media screen and (min-width: 1280px) {
+          font-size: clamp(14px, 1.6rem, 16px);
+        }
+      }
+
+      p:nth-of-type(1) {
+        width: 20%;
+        position: relative;
+
+        &::before {
+          content: "：";
+          position: absolute;
+          top: 50%;
+          right: 0;
+          transform: translateY(-50%);
+        }
+      }
+
+      p:nth-of-type(2) {
+        width: 30%;
+      }
+
+      p:nth-of-type(3) {
+        width: 50%;
+      }
+    }
+
+    &__access {
+      @media screen and (min-width: 1280px) {
+        width: 48%;
+      }
+    }
+
+    &__txt {
+      font-size: clamp(12px, 1.2rem, 14px);
+      line-height: 2;
+
+      &.yellow {
+        display: inline-block;
+        color: $yellow;
+        position: relative;
+
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: -4px;
+          left: 0;
+          width: 100%;
+          border-bottom: 1px dotted $yellow;
+        }
+      }
+
+      @media screen and (min-width: 1280px) {
+        font-size: clamp(14px, 1.6rem, 16px);
+      }
+    }
+  }
+
+  .onlinestore {
+    height: 47.5rem;
+    margin-bottom: 8rem;
+    background: $bg-light-black;
+
+    @media screen and (min-width: 1280px) {
+      height: 74rem;
+      margin-bottom: 16rem;
+    }
+
+    &__link {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.4rem;
+      text-decoration: none;
+      position: relative;
+      transition: 0.4s ease-out;
+
+      &:hover {
+        opacity: 0.7;
+      }
+
+      @media screen and (min-width: 1280px) {
+        flex-direction: row;
+        gap: 8rem;
+      }
+    }
+
+    &__ttl {
+      display: inline-block;
+      color: $white;
+      font-size: clamp(20px, 2rem, 28px);
+      font-weight: 500;
+      letter-spacing: -0.05em;
+
+      @media screen and (min-width: 1280px) {
+        font-size: clamp(28px, 3.2rem, 32px);
+      }
+    }
+
+    &__line {
+      display: block;
+      width: 1px;
+      height: 10rem;
+      background: $light-white;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1px;
+        height: 10rem;
+        background: $white;
+        animation: moveLineSp 2s ease-out infinite;
+      }
+
+      @media screen and (min-width: 1280px) {
+        width: 33rem;
+        height: 1px;
+
+        &::before {
+          width: 33rem;
+          height: 1px;
+          animation: moveLinePc 2s ease-out infinite;
+        }
+      }
+    }
+
+    &__img-wrap {
+      width: 15rem;
+      height: 8rem;
+
+      @media screen and (min-width: 1280px) {
+        width: 18rem;
+        height: 10rem;
+      }
+    }
+
+    &__img {
+      @include img-base;
+    }
+  }
+}

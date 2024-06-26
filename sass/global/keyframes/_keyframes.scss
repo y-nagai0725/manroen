@@ -1,0 +1,132 @@
+//op:ロゴ表示
+@keyframes showLogo {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+//op:非表示
+@keyframes wrapHide {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    z-index: 0;
+  }
+}
+
+//セクションロゴ表示
+@keyframes hideMask {
+  0% {
+    opacity: 0;
+    -webkit-mask-position: right center;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    -webkit-mask-position: left center;
+  }
+}
+
+//onlinestoreセクションのラインアニメーション:sp
+@keyframes moveLineSp {
+  0% {
+    transform-origin: center top;
+    transform: scaleY(0);
+  }
+  45% {
+    transform-origin: center top;
+    transform: scaleY(1);
+  }
+  55% {
+    transform-origin: center bottom;
+    transform: scaleY(1);
+  }
+  100% {
+    transform-origin: center bottom;
+    transform: scaleY(0);
+  }
+}
+
+//onlinestoreセクションのラインアニメーション:pc
+@keyframes moveLinePc {
+  0% {
+    transform-origin: left center;
+    transform: scaleX(0);
+  }
+  45% {
+    transform-origin: left center;
+    transform: scaleX(1);
+  }
+  55% {
+    transform-origin: right center;
+    transform: scaleX(1);
+  }
+  100% {
+    transform-origin: right center;
+    transform: scaleX(0);
+  }
+}
+
+//history画像:真ん中から上へ
+@keyframes historyImage1 {
+  0% {
+    transform: rotate(10deg);
+    opacity: 0.8;
+    z-index: 2;
+  }
+
+  100% {
+    transform: none;
+    opacity: 1;
+    z-index: 3;
+  }
+}
+
+//history画像:下から真ん中へ
+@keyframes historyImage2 {
+  0% {
+    transform: rotate(-10deg);
+    opacity: 0.2;
+    z-index: 1;
+  }
+
+  100% {
+    transform: rotate(10deg);
+    opacity: 0.8;
+    z-index: 2;
+  }
+}
+
+//history画像:上から下へ
+@keyframes historyImage3 {
+  0% {
+    transform: none;
+    opacity: 1;
+    z-index: 3;
+  }
+
+  40% {
+    transform: translate(-50%, 15%) rotate(-30deg);
+    opacity: 0;
+    z-index: 2;
+  }
+
+  40.1% {
+    transform: translate(-40%, -20%) rotate(30deg);
+    opacity: 0;
+    z-index: 1;
+  }
+
+  100% {
+    transform: rotate(-10deg);
+    opacity: 0.2;
+    z-index: 1;
+  }
+}

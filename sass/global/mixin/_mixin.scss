@@ -1,0 +1,36 @@
+@use "../setting" as *;
+
+@mixin img-base {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+@mixin contents-width {
+  padding: 0 2.5rem;
+
+  @media screen and (min-width: 1280px) {
+    padding: 0 16rem 0 40rem;
+  }
+}
+
+@mixin show-title-logo {
+  opacity: 0;
+  -webkit-mask-image: linear-gradient(to right, #000 33.3%, rgba(0, 0, 0, 0) 66.6%);
+  -webkit-mask-position: left center;
+  -webkit-mask-size: 300% 100%;
+  -webkit-mask-repeat: no-repeat;
+
+  &.js-active {
+    animation: hideMask 1.2s ease-out forwards;
+  }
+}
+
+@mixin auto-show-title-logo {
+  opacity: 0;
+  -webkit-mask-image: linear-gradient(to right, #000 33.3%, rgba(0, 0, 0, 0) 66.6%);
+  -webkit-mask-position: left center;
+  -webkit-mask-size: 300% 100%;
+  -webkit-mask-repeat: no-repeat;
+  animation: hideMask 1.2s ease-out forwards;
+}

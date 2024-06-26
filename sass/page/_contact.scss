@@ -1,0 +1,555 @@
+@use "../global" as *;
+
+#contact {
+  .mv {
+    height: 100vh;
+    margin-bottom: 8rem;
+    position: relative;
+
+    @media screen and (min-width: 1280px) {
+      margin-bottom: 16rem;
+    }
+
+    &__ttl {
+      margin-left: 2.5rem;
+      width: 25.3rem;
+      position: absolute;
+      top: 35%;
+
+      @media screen and (min-width: 1280px) {
+        margin-left: 40rem;
+        width: 58.8rem;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+
+    &__logo-img {
+      @include img-base;
+      @include auto-show-title-logo;
+      margin-bottom: 1.6rem;
+
+      @media screen and (min-width: 1280px) {
+        margin-bottom: 2.4rem;
+      }
+    }
+
+    &__ttl-ja {
+      display: block;
+      color: $white;
+      font-size: clamp(18px, 1.8rem, 24px);
+      font-weight: 400;
+      letter-spacing: 0.05em;
+
+      @media screen and (min-width: 1280px) {
+        font-size: clamp(26px, 3.2rem, 32px);
+      }
+    }
+
+    &__bg {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 22.5rem;
+      max-height: 400px;
+      background: url(../images/contact/mv.jpg) center center / cover;
+      z-index: -1;
+
+      @media screen and (min-width: 1280px) {
+        bottom: 50%;
+        transform: translateY(50%);
+        width: calc(100% - 62rem);
+        height: 80%;
+        max-height: none;
+      }
+    }
+  }
+
+  .contents {
+    margin-bottom: 8rem;
+
+    @media screen and (min-width: 1280px) {
+      margin-bottom: 16rem;
+    }
+
+    &__inner {
+      @include contents-width;
+
+      @media screen and (min-width: 1280px) {
+        padding-left: 62rem;
+      }
+    }
+
+    &__txt {
+      margin-bottom: 1.6rem;
+      color: $white;
+      font-size: clamp(14px, 1.4rem, 16px);
+      line-height: 2;
+      letter-spacing: 0.05em;
+
+      @media screen and (min-width: 1280px) {
+        margin-bottom: 4rem;
+        font-size: clamp(16px, 1.8rem, 18px);
+      }
+    }
+
+    &__note {
+      margin-bottom: 6rem;
+      color: $white;
+      font-size: 12px;
+      line-height: 1;
+
+      span {
+        color: $yellow;
+      }
+
+      @media screen and (min-width: 1280px) {
+        margin-bottom: 10rem;
+        font-size: 14px;
+      }
+    }
+
+    &__form {
+      padding: 6rem 0 0;
+      border-top: 1px solid $light-white;
+
+      @media screen and (min-width: 1280px) {
+        padding: 10rem 0 0;
+      }
+    }
+
+    &__form-box {
+      margin-bottom: 3.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.4rem;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+
+      @media screen and (min-width: 1280px) {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 4rem;
+      }
+    }
+
+    &__form-label {
+      display: block;
+      color: $white;
+      font-size: clamp(14px, 1.4rem, 18px);
+
+      &.required::after {
+        content: "※";
+        margin-left: 0.8rem;
+        color: $yellow;
+        font-size: clamp(14px, 1.4rem, 18px);
+      }
+
+      @media screen and (min-width: 1280px) {
+        font-size: clamp(18px, 2.2rem, 22px);
+
+        &.required::after {
+          margin-left: 1.2rem;
+          font-size: clamp(18px, 2.2rem, 22px);
+        }
+
+        &.flex-start {
+          margin-top: 3.6rem;
+          align-self: flex-start;
+        }
+      }
+    }
+
+    &__radio-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 2.4rem;
+
+      @media screen and (min-width: 1280px) {
+        width: 68%;
+        justify-content: flex-start;
+        gap: 6.4rem;
+      }
+    }
+
+    &__form-radio {
+      display: none;
+
+      &:checked + label::after {
+        opacity: 1;
+      }
+    }
+
+    &__radio-label {
+      cursor: pointer;
+      padding-left: 40px;
+      font-size: clamp(14px, 1.4rem, 16px);
+      position: relative;
+
+      &::before {
+        content: "";
+        box-sizing: border-box;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 1px solid $light-white;
+      }
+
+      &::after {
+        content: "";
+        box-sizing: border-box;
+        position: absolute;
+        top: 50%;
+        left: 12px;
+        transform: translateY(-50%);
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: $white;
+        transition: 0.4s ease-out;
+        opacity: 0;
+      }
+
+      @media screen and (min-width: 1280px) {
+        padding-left: 56px;
+        font-size: clamp(16px, 1.8rem, 18px);
+
+        &::before {
+          width: 40px;
+          height: 40px;
+        }
+
+        &::after {
+          left: 16px;
+          width: 8px;
+          height: 8px;
+        }
+      }
+    }
+
+    &__form-input,
+    &__form-message {
+      width: 100%;
+      padding: 2.5rem 2rem;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+      background-color: $white;
+      background-image: none;
+      border-radius: 0;
+      border: none;
+      color: $bg-black;
+      font-family: $zen-gothic;
+      font-size: clamp(14px, 1.4rem, 16px);
+      transition: 0.4s;
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 6px 0 $gray;
+      }
+
+      &::placeholder {
+        color: $gray;
+      }
+
+      @media screen and (min-width: 1280px) {
+        width: 68%;
+        padding: 3.4rem 4rem;
+        font-size: clamp(16px, 1.8rem, 18px);
+      }
+    }
+
+    &__form-message {
+      height: 25rem;
+      margin-bottom: 6rem;
+      line-height: 1.5;
+      resize: none;
+
+      @media screen and (min-width: 1280px) {
+        height: 37rem;
+        margin-bottom: 10rem;
+      }
+    }
+
+    &__privacy {
+      margin-bottom: 4rem;
+      padding: 4rem 0 1rem;
+      border: 1px solid $light-white;
+
+      @media screen and (min-width: 1280px) {
+        margin-bottom: 16rem;
+        padding: 8rem 0 2rem;
+      }
+    }
+
+    &__privacy-ttl {
+      margin-bottom: 3.2rem;
+      color: $white;
+      font-size: clamp(16px, 1.6rem, 22px);
+      font-weight: 500;
+      text-align: center;
+
+      @media screen and (min-width: 1280px) {
+        margin-bottom: 4.8rem;
+        font-size: clamp(22px, 2.8rem, 28px);
+      }
+    }
+
+    &__privacy-txt-area {
+      height: 30rem;
+      padding: 0 2rem;
+      overflow-y: scroll;
+      /* Edge 対応 */
+      -ms-overflow-style: none;
+      /* Firefox 対応 */
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        /* Chrome, Safari 対応 */
+        display: none;
+      }
+
+      .simplebar-scrollbar::before {
+        background: $white;
+        border-radius: 9999px;
+        width: 6px;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+
+      .simplebar-scrollbar.simplebar-visible::before {
+        opacity: 1;
+      }
+
+      .simplebar-track {
+        background: $gray;
+        border-radius: 9999px;
+        width: 6px;
+        right: 8px;
+      }
+
+      @media screen and (min-width: 1280px) {
+        height: 33rem;
+        padding: 0 8rem;
+
+        .simplebar-track {
+          right: 16px;
+        }
+      }
+    }
+
+    &__privacy-txt {
+      margin-bottom: 2rem;
+      color: $white;
+      font-size: clamp(12px, 1.2rem, 14px);
+      line-height: 2;
+      letter-spacing: 0.05em;
+
+      @media screen and (min-width: 1280px) {
+        margin-bottom: 3.6rem;
+        font-size: clamp(16px, 1.8rem, 18px);
+      }
+    }
+
+    &__privacy-heading {
+      margin-bottom: 1rem;
+      color: $white;
+      font-size: clamp(14px, 1.4rem, 16px);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+
+      @media screen and (min-width: 1280px) {
+        margin-bottom: 1.8rem;
+        font-size: clamp(18px, 2rem, 20px);
+      }
+    }
+
+    &__bottom-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+
+      @media screen and (min-width: 1440px) {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 0;
+      }
+    }
+
+    &__form-checkbox {
+      display: none;
+
+      &:checked + label {
+        color: $white;
+      }
+
+      &:checked + label::after {
+        opacity: 1;
+      }
+    }
+
+    &__check-label {
+      cursor: pointer;
+      padding-left: 44px;
+      color: $light-white;
+      font-size: clamp(16px, 1.6rem, 18px);
+      position: relative;
+      transition: 0.4s ease-out;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 26px;
+        height: 26px;
+        border: 1px solid $light-white;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: 4px;
+        transform: rotate(-45deg);
+        width: 30px;
+        height: 10px;
+        border-left: 4px solid $white;
+        border-bottom: 4px solid $white;
+        transition: 0.4s ease-out;
+        opacity: 0;
+      }
+
+      @media screen and (min-width: 1280px) {
+        padding-left: 54px;
+        font-size: clamp(20px, 2.2rem, 22px);
+
+        &::before {
+          width: 30px;
+          height: 30px;
+        }
+
+        &::after {
+          top: -10px;
+          left: 5px;
+          width: 32px;
+          height: 12px;
+          border-left: 5px solid $white;
+          border-bottom: 5px solid $white;
+        }
+      }
+    }
+
+    &__submit {
+      cursor: pointer;
+      width: 100%;
+      padding: 0;
+      border: none;
+      outline: none;
+      font: inherit;
+      color: inherit;
+      background: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      transition: 0.4s;
+
+      &.disabled {
+        opacity: 0.2;
+        pointer-events: none;
+      }
+
+      &:hover {
+        .contents__submit-txt {
+          &::after {
+            transform: scale(1);
+          }
+        }
+
+        .contents__submit-button {
+          &::before {
+            transform: translate(100%, -50%);
+          }
+        }
+      }
+
+      @media screen and (min-width: 1280px) {
+        width: 55%;
+        gap: 4rem;
+      }
+    }
+
+    &__submit-txt {
+      display: block;
+      font-size: clamp(16px, 1.6rem, 18px);
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: $light-white;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: $white;
+        transform-origin: left;
+        transform: scale(0);
+        transition: transform 0.6s;
+      }
+
+      @media screen and (min-width: 1280px) {
+        font-size: clamp(18px, 3rem, 30px);
+      }
+    }
+
+    &__submit-button {
+      width: 100px;
+      height: 40px;
+      display: block;
+      border-radius: 50px;
+      border: 1px solid $light-white;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 20px;
+        height: 10px;
+        background: url(../images/contact/arrow.svg) center center / cover;
+        transition: 0.6s;
+      }
+
+      @media screen and (min-width: 1280px) {
+        width: 120px;
+        height: 50px;
+      }
+    }
+  }
+}

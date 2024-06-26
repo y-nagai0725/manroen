@@ -1,0 +1,22 @@
+@use "../global" as *;
+
+html {
+  font-size: calc(10vw * calc(100 / 375));
+
+  @media screen and (min-width: 1280px) {
+    font-size: calc(10vw * calc(100 / 1920));
+  }
+
+}
+
+body {
+  color: $white;
+  font-family: $zen-gothic;
+  font-weight: 400;
+  line-height: 1;
+  background: $bg-black;
+}
+
+.wrapper {
+  overflow: hidden;
+}
