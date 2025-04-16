@@ -10,6 +10,7 @@
 - [デザインカンプ](#デザインカンプ)
 - [トップページ](#トップページ)
   - [FV](#fv)
+  - [アコーディオンメニュー](#アコーディオンメニュー)
   - [スライダー](#スライダー)
 
 ## 概要
@@ -48,6 +49,47 @@
 背景画像が拡大しながらフェードで切り替わっていきます。
 
 **Swiper.js**を使用して実装しました。
+
+### アコーディオンメニュー
+![Image](https://github.com/user-attachments/assets/22a0e6a4-53d3-464d-b11f-7ebe41144120)
+
+開閉時のクラスの付与、要素の高さ設定などをJavaScriptで実装しました。
+
+```javascript
+//メニュー開閉ボタン
+const menuBtn = document.querySelectorAll('.menu__heading-btn');
+
+//メニュー開閉ボタンクリック時処理
+menuBtn.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const contents = btn.parentElement.nextElementSibling;
+    const children = contents.children;
+
+    //リストの高さ合計を取得
+    let contentsHeight = 0;
+    for (let i = 0; i < children.length; i++) {
+      contentsHeight += children[i].offsetHeight;
+    }
+
+    //開閉処理
+    if (btn.classList.contains('opened')) {
+      btn.classList.remove('opened');
+      contents.style.height = contentsHeight + 'px';
+      setTimeout(() => {
+        contents.style.height = 0;
+        contents.style.opacity = 0;
+      });
+    } else {
+      btn.classList.add('opened');
+      contents.style.height = contentsHeight + 'px';
+      contents.style.opacity = 1;
+      setTimeout(() => {
+        contents.style.height = 'auto';
+      }, 600);
+    }
+  })
+});
+```
 
 ### スライダー
 ![Image](https://github.com/user-attachments/assets/ae03821c-5994-47e4-893b-5f25cde2b106)
