@@ -12,6 +12,10 @@
   - [FV](#fv)
   - [アコーディオンメニュー](#アコーディオンメニュー)
   - [スライダー](#スライダー)
+- [Recruitページ](#recruitページ)
+- [Contactページ](#contactページ)
+- [Online Storeページ](#online-storeページ)
+- [グローバルナビゲーションメニュー](#グローバルナビゲーションメニュー)
 
 ## 概要
 * 老舗本格中華を味わえる中華料理店サイト。
@@ -29,6 +33,7 @@
 * JavaScript
 * Swiper.js
 * Luxy.js（慣性スクロール実装に使用）
+* SimpleBar.js（スクロールバーカスタマイズに使用）
 
 ## 使用フォント
 * 和文フォント
@@ -97,3 +102,19 @@ menuBtn.forEach(btn => {
 無限スライダー、マウス操作でスライドも可能です。
 
 **Swiper.js**を使用して実装しました。
+
+## Recruitページ
+![Image](https://github.com/user-attachments/assets/bdeb700e-cc71-4e43-91cb-ffeb0d32baad)
+
+## Contactページ
+![Image](https://github.com/user-attachments/assets/eaeddaf6-7873-4b4a-8be8-b89be4de9a40)
+
+プライバシーポリシー部分のスクロールバーのカスタマイズに**SimpleBar.js**を使用しました。
+
+[SimpleBar.js](https://github.com/Grsmto/simplebar/tree/master/packages/simplebar)
+
+## Online Storeページ
+![Image](https://github.com/user-attachments/assets/54fb496b-a3bb-4a92-b39e-3b99ad6e86ed)
+
+## グローバルナビゲーションメニュー
+![Image](https://github.com/user-attachments/assets/d3d3124c-b87a-4ba2-b3ea-f2e983294593)
